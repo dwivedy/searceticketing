@@ -1,6 +1,3 @@
 {
-    "uname" : "wirechat03",
-    "password" : "maccafe045",
-    "mongodbURI" : "mongodb://localhost:27017/test",
-    "mongodbURILocal" : "mongodb://localhost:27017/test"
+    "mongodbURI" : "mongodb://wirechat03:maccafe045@ds261540.mlab.com:61540/lsections2019"
 }
