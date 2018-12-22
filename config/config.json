@@ -1,0 +1,6 @@
+{
+    "uname" : "wirechat03",
+    "password" : "maccafe045",
+    "mongodbURI" : "mongodb://localhost:27017/test",
+    "mongodbURILocal" : "mongodb://localhost:27017/test"
+}
