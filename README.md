@@ -92,9 +92,9 @@ Response Codes: Success (200 OK), Bad Request (400), Unauthorized(401)
 
 ```
 
-## fetch a  ticket for authenticate user only 
+## fetch a ticket for authenticate user only 
 ```
-Title : Decrypt the data.
+Title :fetch a  ticket
 URL : http://localhost:3000/api/ticket/5c1f7440dd6ab840e48d5a80
 Method : GET
 Success Response: 
