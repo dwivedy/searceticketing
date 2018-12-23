@@ -7,7 +7,6 @@ const cors = require('cors');
 
 const mongoose = require('./db/dbConnection');
 
-const creatTicket = require('./apicontroller/ticket');
 
 const createEmployee = require('./apicontroller/employee');
 
@@ -29,7 +28,6 @@ app.use(bodyParser.json(), function (err, req, res, next) {
 });
 
 // controllers
-creatTicket(app);
 createEmployee(app);
 
 const port = process.env.PORT || 3000;

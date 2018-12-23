@@ -14,6 +14,10 @@ const employeeSchema = new Schema({
     unique: true
   },
 
+  password: {
+    type: String,
+    required: true,
+  },
   tickets: [
     {
       type: Schema.Types.ObjectId,

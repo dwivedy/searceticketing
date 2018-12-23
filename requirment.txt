@@ -1,0 +1,17 @@
+
+Download Node below mention packages to use this api
+
+"dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.10",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.1.5",
+    "validator": "^10.4.0"
+  },
+  "devDependencies": {
+    "expect": "^23.1.0",
+    "mocha": "^5.2.0",
+    "supertest": "^3.1.0"
+  }

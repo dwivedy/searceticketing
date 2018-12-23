@@ -14,6 +14,13 @@ const ticketSchema = new Schema({
     lowercase: true,
     // maxlength: 30
   },
+
+  description: {
+    type: String,
+    required: true,
+    trim: true,
+    lowercase: true,
+  },
   employeeNameRef: {
     type: Schema.Types.ObjectId,
     ref: 'Employee',

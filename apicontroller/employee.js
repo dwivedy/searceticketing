@@ -14,7 +14,8 @@ module.exports = function(app) {
     EmployeeCollection.findById(id).then(employeeFind => {
       let ticket = new TicketCollection({
         employeeNameRef: employeeFind._id,
-        title: req.body.title
+        title: req.body.title,
+        description: req.body.description
       });
       console.log("**** " + ticket);
       ticket
@@ -27,7 +28,7 @@ module.exports = function(app) {
             .then(employeeSaved => {
               // res.redirect('/api/employee');
               // console.log(employeeSaved);
-              res.send(employeeSaved);
+              res.send(ticketSaved);
             })
             .catch(e => {
               return res.status(400).send(e);
@@ -41,31 +42,15 @@ module.exports = function(app) {
 
   app.post("/api/create/employee", (req, res) => {
     let employeeParam = req.body.employeeName;
+    let employeePaassword = req.body.password;
 
-    // let body = _.pick(req.body, ["employeeName"]);
-    // let employee = new EmployeeCollection(body);
-
-    // employee
-    //   .save()
-    //   .then(() => {
-    //     //redirect after successful employee save.
-
-    //     return employee.generateAuthToken();
-    //     // return res.send({ employeeSaved });
-    //   })
-    //   .then(token => {
-    //     res.header("x-auth", token).send(employee);
-    //   })
-    //   .catch(e => {
-    //     return res.status(400).send(e);
-    //   });
-
-    EmployeeCollection.findOne({ employeeName: employeeParam })
+    EmployeeCollection.findOne({ employeeName: employeeParam})
       .then(employeeDoc => {
         if (employeeDoc === null) {
           let employee = new EmployeeCollection();
 
           employee.employeeName = employeeParam;
+          employee.password = employeePaassword;
 
           employee
             .save()
@@ -89,6 +74,26 @@ module.exports = function(app) {
         return res.status(400).send(e);
       }); //findone
   }); //post
+
+  // find a ticket with id
+  app.get("/api/ticket/:id", authenticate, (req, res) => {
+    let id = req.params.id;
+    if (!ObjectID.isValid(id)) {
+      return res.status(404).send();
+    }
+
+    TicketCollection.findById(id)
+      .then((ticket)=>{
+        if (!ticket) {
+          return res.status(404).send();
+        }
+        res.send({ticket});
+
+      })
+      .catch(()=>{
+        return res.status(400).send(e);
+      });
+  });
 
   // delete a ticket
 
@@ -124,7 +129,7 @@ module.exports = function(app) {
               .then(employeeSaved => {
                 // res.redirect('/api/employee');
                 // console.log(employeeSaved);
-                res.send(employeeSaved);
+                res.send(ticketDeleted);
               })
               .catch(e => {
                 return res.status(400).send(e);
@@ -144,7 +149,7 @@ module.exports = function(app) {
   // update a ticket
   app.patch("/api/update/ticket/:id", authenticate, (req, res) => {
     let id = req.params.id;
-    let body = _.pick(req.body, ["title"]);
+    let body = _.pick(req.body, ["title","description"]);
     if (!ObjectID.isValid(id)) {
       return res.status(404).send();
     }
