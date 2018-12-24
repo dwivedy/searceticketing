@@ -97,6 +97,7 @@ Response Codes: Success (200 OK), Bad Request (400), Unauthorized(401)
 Title :fetch a  ticket
 URL : http://localhost:3000/api/ticket/5c1f7440dd6ab840e48d5a80
 Method : GET
+Headers: x-auth eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YzFmNmU3ZTA5NDUxZTU0OTgwNjY1ZWIiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNT
 Success Response: 
 Example: 
 {
