@@ -69,7 +69,7 @@ Response Codes: Success (200 OK), Bad Request (400), Unauthorized(401)
 ```
 ## update a ticket for authenticate user only 
 ```
-Title : ticket create.
+Title : update ticket .
 URL : http://localhost:3000/api/update/ticket/5c1f7440dd6ab840e48d5a80
 Method : PATCH
 Data Params : { title:[string],description:[string]}
