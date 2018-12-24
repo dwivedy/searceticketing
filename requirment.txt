@@ -1,5 +1,5 @@
 
-Download Node below mention packages to use this api
+Download Node, mongodb database and below mention to test code in localhost
 
 "dependencies": {
     "cors": "^2.8.4",
